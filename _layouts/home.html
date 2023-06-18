@@ -3,12 +3,82 @@ layout: default
 home: true
 ---
 
-<h3 class="posts-item-note" aria-label="Recent Posts">Recent Posts</h3>
+<h3 class="posts-item-note" aria-label="Recent Posts">Ostatnie wpisy</h3>
 {%- for post in site.posts limit: site.number_of_posts -%}
 <article class="post-item">
-  <span class="post-item-date">{{ post.date | date: "%b %d, %Y" }}</span>
+  <span class="post-item-date">{{ post.date | date: "%d/%m/%Y" }}</span>
   <h4 class="post-item-title">
+    {% unless post.externalUrl %}
     <a href="{{ post.url }}">{{ post.title | escape }}</a>
+    {% endunless %} {% if post.externalUrl %}
+    <a href="{{ post.externalUrl }}" target="_blank">{{ post.title | escape }}</a>
+    {% endif %}
+  </h4>
   </h4>
 </article>
 {%- endfor -%}
+
+<br>
+<br>
+
+<center> 
+  <h3> Chcesz być na bieżąco? 
+  <br> 
+  <a class="search-text" href="https://remigiuszswiatkowski.substack.com/">Dołącz do newslettera!</a> 
+  </h3> 
+  
+  <div id="custom-substack-embed">
+    <style>
+  .csw-substack-gradient-custom{
+    --sce-primary-color:#FF2957;
+    --sce-input-color:#131418;
+    --sce-text-color:#000000;
+    --sce-input-text-color:#C7BEBE;
+  }
+
+  .csw-substack-gradient-custom{
+    padding: 0px !important;
+    border: 2px solid var(--sce-primary-color) !important;
+  }
+
+
+  .csw-substack-gradient-custom button{
+      background-color: var(--sce-primary-color) !important;
+  }
+
+  .csw-substack-gradient-custom input{
+    border-radius: 2px !important;
+    border-top-right-radius:0px !important;
+    border-bottom-right-radius:0px !important;
+    background-color: var(--sce-input-color) !important;
+  }
+
+  .csw-substack-gradient-custom button{
+    color: var(--sce-text-color) !important;
+  }
+
+  .csw-substack-gradient-custom input{
+    color: var(--sce-input-text-color) !important;
+  }
+
+  .csw-substack-gradient-custom input::placeholder{
+    color: var(--sce-input-text-color) !important;
+    opacity:0.8 !important;
+  }
+
+</style>
+
+<form class="csw-substack-gradient-custom">
+  <input placeholder="Tu wpisz swój email" value="">
+  <button type="submit">Dołącz</button>
+</form>
+
+</div> 
+
+<script> window.CustomSubstackWidget = { substackUrl: "remigiuszswiatkowski.substack.com", placeholder: "Tu wpisz swój email", buttonText: "Dołącz", theme: "custom", colors: { primary: "#FF2957", input: "#131418", email: "#C7BEBE", text: "#000000", } }; </script> 
+<script src="https://substackapi.com/widget.js" async=""></script> 
+
+<br> 
+<br> 
+</center>
+

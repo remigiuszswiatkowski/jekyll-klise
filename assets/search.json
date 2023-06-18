@@ -7,7 +7,11 @@ layout: none
     {
       "title"    : "{{ post.title | escape }}",
       "tags"     : "{{ post.tags | join: ', ' }}",
-      "url"      : "{{ site.baseurl }}{{ post.url }}",
+      {% if post.externalUrl %}
+      "url": "{{ post.externalUrl }}",
+       {% else %}
+      "url": "{{ site.baseurl }}{{ post.url }}",
+      {% endif %}      
       "date"     : "{{ post.date }}"
     } {% unless forloop.last %},{% endunless %}
   {% endfor %}

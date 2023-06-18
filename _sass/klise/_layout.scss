@@ -190,8 +190,8 @@
   }
 
   .author-avatar {
-    width: 70px;
-    height: 70px;
+    width: 200px;
+    height: 200px;
     border-radius: 100%;
     user-select: none;
     background-color: $black;
@@ -203,21 +203,22 @@
   }
 
   .author-name {
-    font-size: 1.7em;
+    font-size: clamp(1em, 3.5vw, 1.7em);
     margin-bottom: 2px;
   }
 
   .author-bio {
     margin: 0 auto;
+    font-size: clamp(0.8em, 2.5vw, 1.1em);
     opacity: 0.9;
-    max-width: 393px;
-    line-height: 1.688;
+    max-width: 500px;
+    line-height: 1.6;
   }
 }
 
 // Content
 .posts-item-note {
-  font-size: $base-font-size;
+  font-size: 16px;
   font-weight: 700;
   margin-bottom: 5px;
   color: $black;
