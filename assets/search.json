@@ -6,6 +6,7 @@ layout: none
   {% for post in site.posts %}
     {
       "title"    : "{{ post.title | escape }}",
+      "description" : "{{ post.description | escape }}",
       "tags"     : "{{ post.tags | join: ', ' }}",
       {% if post.externalUrl %}
       "url": "{{ post.externalUrl }}",
